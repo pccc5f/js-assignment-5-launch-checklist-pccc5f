@@ -36,50 +36,54 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         alert("All fields are required!");
         preventDefault();
     } else if (pilotName.value !== "Not a Number" || copilotName.value !== "Not a Number" || fuelLevel.value !== "Is a Number" || cargoMass.value !== "Is a Number") {
-            alert("Make sure to enter valid information for each field!");
-            preventDefault();
+        alert("Make sure to enter valid information for each field!");
+        preventDefault();
     } else if (Number(validateInput(fuelLevel)) < 10000 && Number(validateInput(cargoMass))) {
         div.innerHTML +=`
         <div id="launchStatusCheck">        
-             <h2 style="color:red;">Shuttle Not Ready for Launch </h2>
+            <h2 style="color:red;">Shuttle Not Ready for Launch </h2>
+            <div  id="faultyItems" data-testid="faultyItems" style="visibility:visible;">
                 <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too high for launch</li>
+                    <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
+                    <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
+                    <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
+                    <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too high for launch</li>
                 </ol>
         </div>`
     } else if (Number(validateInput(fuelLevel)) < 10000) {
         div.innerHTML +=`
         <div id="launchStatusCheck">        
             <h2 style="color:red;">Shuttle Not Ready for Launch </h2>
+            <div  id="faultyItems" data-testid="faultyItems" style="visibility:visible;">
                 <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
+                    <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
+                    <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
+                    <li id="fuelStatus" data-testid="fuelStatus">Fuel level too low for launch</li>
+                    <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
                 </ol>
         </div>`
    } else if (Number(validateInput(cargoMass)) >10000) {
         div.innerHTML +=`
         <div id="launchStatusCheck">           
             <h2 style="color:red;">Shuttle Not Ready for Launch </h2>
+            <div  id="faultyItems" data-testid="faultyItems" style="visibility:visible;">
                 <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too high for launch</li>
+                    <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
+                    <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
+                    <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
+                    <li id="cargoStatus" data-testid="cargoStatus">Cargo mass too high for launch</li>
                 </ol>
         </div>`
    } else {
     div.innerHTML +=`
         <div id="launchStatusCheck">           
-            <h2>Shuttle Ready for Launch </h2>
+            <h2 style="color:green;">Shuttle Ready for Launch </h2>
+            <div  id="faultyItems" data-testid="faultyItems" style="visibility:visible;">
                 <ol>
-                <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
-                <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
-                <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
-                <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
+                    <li id="pilotStatus" data-testid="pilotStatus">Pilot ${pilotName.value} is ready for launch</li>
+                    <li id="copilotStatus" data-testid="copilotStatus">Co-pilot ${copilotName.value} is ready for launch</li>
+                    <li id="fuelStatus" data-testid="fuelStatus">Fuel level high enough for launch</li>
+                    <li id="cargoStatus" data-testid="cargoStatus">Cargo mass low enough for launch</li>
                 </ol>
         </div>`
    }
