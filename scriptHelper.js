@@ -30,7 +30,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    let button = document.getElementbyID("formSubmit")
     let pilotName = document.getElementbyID("pilotName")
     let copilotName = document.getElementbyID("copilotName")
-    let fuelLevel = document.getElementbyID("fuelLevel")
+     fuelLevel = document.getElementbyID("fuelLevel")
     let cargoMass = document.getElementbyID("cargoMass")
     if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
         alert("All fields are required!");
