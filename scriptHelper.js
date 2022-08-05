@@ -47,14 +47,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
         document.getElementById("launchStatus").style.color = "red";
         
-    } else if (Number(validateInput(fuelLevel.value)) < 10000) {
+    } else if (Number(fuelLevel.value) < 10000) {
         list.style.visibility = "visible";
         document.getElementById("fuelStatus").innerHTML = "Fuel level is too low for launch.";
         document.getElementById("cargoStatus").innerHTML = "Cargo Mass is low enough for launch.";
         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
         document.getElementById("launchStatus").style.color = "red";
        
-   } else if (Number(validateInput(cargoLevel.value)) >10000) {
+   } else if (Number(cargoLevel.value) >10000) {
         list.style.visibility = "visible";
         document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch.";
         document.getElementById("cargoStatus").innerHTML = "Cargo Mass is too great for launch.";
