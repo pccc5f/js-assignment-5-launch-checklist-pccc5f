@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
         let cargoLevel = document.querySelector("input[name=cargoMass]")
         event.preventDefault();
         // alert("bitches be clickin")
-        formSubmission(form, list, pilot, copilot, fuelLevel, cargoLevel)
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)
 
     });   
        

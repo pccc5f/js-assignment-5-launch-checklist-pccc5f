@@ -42,7 +42,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         return;
     } else if (Number(fuelLevel.value) < 10000 && Number(cargoLevel.value) > 10000) {
         list.style.visibility = "visible";
-        document.getElementById("fuelStatus").textContent = "Fuel level is too low for launch.";
+        document.getElementById("fuelStatus").innerHTML = "Fuel level is too low for launch.";
         document.getElementById("cargoStatus").innerHTML = "Cargo Mass is too great for launch.";
         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
         document.getElementById("launchStatus").style.color = "red";
