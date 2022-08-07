@@ -4,9 +4,8 @@ require('isomorphic-fetch');
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    const div = document.getElementById('missionTarget');
-        div.innerHTML += `
-            <div class ='missionTarget'>
-                <h2>Mission Destination</h2>
+        div.innerHTML = `
+              <h2>Mission Destination</h2>
                 <ol>
                     <li>Name: ${name} </li>
                     <li>Diameter:${diameter}  </li>
@@ -15,7 +14,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                     <li>Number of Moons: ${moons}</li>
                 </ol>
                 <img src="${imageUrl}">
-            </div>`
+            `
 }
 
 function validateInput(testInput) {
@@ -29,11 +28,7 @@ function validateInput(testInput) {
     }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    //  let list = document.getElementById("faultyItems")
-    //  let pilot = document.querySelector("input[name=pilotName]")
-    //  let copilot = document.querySelector("input[name=copilotName]")
-    //  let fuelLevel = document.querySelector("input[name=fuelLevel]")
-    //  let cargoLevel = document.querySelector("input[name=cargoMass]")
+  
     if (pilot.value === "" || copilot.value === "" || fuelLevel.value === "" || cargoLevel.value === "") {
         alert("All fields are required!");
         return;
@@ -78,17 +73,25 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-        response.json().then(function(json) {
-            let destination = document.getElementById('missionTarget');
-            destination.innerHTML = addDestinationInfo(json.pickPlanet(json))
-        } 
-    )})
+        return response.json();})
+
+        // response.json().then(function(json) {
+        //     planetsReturned = json
+            // return planetsReturned
+            // return response.json()
+           
+            // console.log(planetsReturned[1])
+            // let destination = document.getElementById('missionTarget');
+            // destination.innerHTML = addDestinationInfo(json.pickPlanet(json))
+        
+    
 
     return planetsReturned;
+    
 };
 
 function pickPlanet(planets) {
-    return Math.floor(math.random() * planets.length)
+    return planets[(Math.floor(Math.random() * planets.length))]
 };
 
 module.exports.addDestinationInfo = addDestinationInfo;
